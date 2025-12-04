@@ -115,9 +115,9 @@ if __name__ == '__main__':
 	# Allow overriding host/port via environment variables for easier LAN testing
 	host = os.environ.get('FLASK_HOST', '0.0.0.0')
 	try:
-		port = int(os.environ.get('FLASK_PORT', '5000'))
+		port = int(os.environ.get('FLASK_PORT', '5001'))
 	except ValueError:
-		port = 5000
+		port = 5001
 	debug_env = os.environ.get('FLASK_DEBUG')
 	debug = True if debug_env is None else (debug_env.lower() not in ('0', 'false'))
 	app.run(host=host, port=port, debug=debug)

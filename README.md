@@ -1,4 +1,4 @@
-## Gaziantep Lezzet Rehberi — Local Kurulum
+bu## Gaziantep Lezzet Rehberi — Local Kurulum
 
 Bu proje tam başlangıç (SQLite + Flask-SQLAlchemy + Flask-WTF) içerir.
 
