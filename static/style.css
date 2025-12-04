@@ -1,0 +1,96 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f7f9fc;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 720px;
+  margin: 6rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+a { color: #059669; text-decoration: none; }
+
+/* Hero banner styles */
+.hero-banner {
+  background-image: url('/static/images/hero.jpg');
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  /* overlay colors default to vars; script can generate static/hero_palette.css to override */
+  background: linear-gradient(180deg, var(--hero-overlay1, rgba(0,0,0,0.55)), var(--hero-overlay2, rgba(0,0,0,0.28)));
+}
+.hero-content {
+  position: relative;
+  z-index: 10;
+}
+.hero-content h1 { text-shadow: 0 6px 18px rgba(0,0,0,0.45); }
+.hero-content p { text-shadow: 0 4px 12px rgba(0,0,0,0.35); }
+
+@media (max-width: 640px) {
+  .hero-content h1 { font-size: 2rem; }
+}
+
+/* Fine adjustments */
+/* Make hero taller and more prominent */
+.hero-banner { min-height: 85vh; display: flex; align-items: center; }
+.hero-banner .max-w-7xl { position: relative; z-index: 10; }
+@media (max-width: 640px) {
+  .hero-banner { min-height: 60vh; }
+}
+
+/* Full-bleed helper: allow an element inside a centered container to span the full viewport width */
+.full-bleed {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(180deg,var(--hero-accent1, #10B981),var(--hero-accent2, #047857));
+  color: #fff !important;
+  padding: 0.7rem 1.25rem;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(4,120,87,0.18);
+  display: inline-block;
+  font-weight: 600;
+}
+.btn-primary:hover { transform: translateY(-2px); transition: 0.18s ease; }
+
+.btn-outline {
+  background: transparent;
+  color: #fff !important;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.9);
+  display: inline-block;
+  font-weight: 600;
+}
+.btn-outline:hover { background: rgba(255,255,255,0.06); transform: translateY(-1px); transition: 0.15s ease; }
+
+@media (max-width: 640px) {
+  .hero-banner { min-height: 340px; }
+  .btn-primary, .btn-outline { padding: 0.55rem 0.9rem; font-size: 0.95rem; }
+}
+
+/* Utility classes from provided design */
+.text-off-white { color: var(--off-white, #FCFCFC); }
+.bg-primary { background-color: var(--primary, #49ec13); }
+.bg-creamy-beige { background-color: var(--creamy-beige, #F5F0E8); }
+.bg-light-sage-green { background-color: var(--light-sage-green, #D5E0D7); }
+
+/* Ensure hero buttons match */
+.btn-primary { display:inline-flex; align-items:center; justify-content:center; min-width:84px; height:48px; padding:0 1.25rem; border-radius:0.5rem; }
+.btn-outline { background: rgba(255,255,255,0.06); }

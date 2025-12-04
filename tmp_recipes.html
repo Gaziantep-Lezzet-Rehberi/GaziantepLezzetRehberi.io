@@ -1,0 +1,321 @@
+﻿<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tüm Lezzetler</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#49ec13",
+              "background-light": "#f6f8f6",
+              "background-dark": "#152210",
+              "light-sage-green": "#D5E0D7",
+              "creamy-beige": "#F5F0E8",
+              "light-terracotta": "#E8B3A2",
+              "off-white": "#FCFCFC",
+            },
+            fontFamily: {
+              "display": ["Nunito Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+    <style>
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24 }
+      .footer-bg { background-color: #D5E0D7; }
+      .dark .footer-bg { background-color: #1a2c15; }
+      .text-content-light { color: #131811; }
+      .dark .text-content-light { color: #f6f8f6; }
+      .text-content-subtle-light { color: #6b8961; }
+      .dark .text-content-subtle-light { color: #a2bcae; }
+    </style>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/hero_palette.css">
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <!-- Header -->
+    <header class="bg-white shadow">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-6">
+          <div class="flex items-center">
+            <a href="/" class="flex items-center gap-3">
+              <img src="/static/logo.png" alt="Gaziantep Lezzet Rehberi" class="w-10 h-10 object-cover rounded-full shadow-sm" onerror="this.style.display='none'" />
+              <div>
+                <div class="text-lg font-bold text-green-600">Gaziantep Lezzet Rehberi</div>
+                <div class="text-xs text-gray-500">Lezzetin Başkentine Hoş Geldiniz</div>
+              </div>
+            </a>
+            <nav class="ml-8 space-x-4 text-sm">
+              <a href="/" class="text-gray-700 hover:text-green-600">Ana Sayfa</a>
+              <a href="/recipes" class="text-gray-700 hover:text-green-600">Lezzetler</a>
+              <a href="/places" class="text-gray-700 hover:text-green-600">Mekanlar</a>
+              <a href="/about" class="text-gray-700 hover:text-green-600">Hakkında</a>
+            </nav>
+          </div>
+          <div><!-- login button removed per user request -->
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="py-10">
+      <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
+        
+<div class="mb-6">
+  <form method="get" class="flex gap-2">
+    <input name="q" value="" placeholder="Ara..." class="w-full border rounded px-3 py-2" />
+    <select name="category" class="border rounded px-3 py-2">
+      <option value="">Tümü</option>
+      <option value="Tatlılar" >Tatlılar</option>
+      <option value="Kebaplar" >Kebaplar</option>
+      <option value="Çorbalar" >Çorbalar</option>
+    </select>
+    <button class="bg-green-600 text-white px-4 py-2 rounded">Ara</button>
+  </form>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+  
+  
+    
+    
+      <div class="bg-white rounded shadow p-4 flex">
+        
+        <img src="/static/images/beyran.jpg" class="w-24 h-24 object-cover rounded mr-4" />
+        
+        <div>
+          <h3 class="font-semibold text-lg"><a href="/recipes/1">Beyran</a></h3>
+          <p class="text-sm text-gray-600">Gaziantep usulü acılı et suyu çorbası.</p>
+        </div>
+      </div>
+      
+    
+  
+    
+    
+      <div class="bg-white rounded shadow p-4 flex">
+        
+        <img src="/static/images/baklava.jpg" class="w-24 h-24 object-cover rounded mr-4" />
+        
+        <div>
+          <h3 class="font-semibold text-lg"><a href="/recipes/2">Baklava</a></h3>
+          <p class="text-sm text-gray-600">İncecik yufkalar ve antep fıstığıyla yapılan tatlı.</p>
+        </div>
+      </div>
+      
+    
+  
+    
+    
+      <div class="bg-white rounded shadow p-4 flex">
+        
+        <img src="/static/images/yuvalama.jpg" class="w-24 h-24 object-cover rounded mr-4" />
+        
+        <div>
+          <h3 class="font-semibold text-lg"><a href="/recipes/3">Yuvalama</a></h3>
+          <p class="text-sm text-gray-600">Küçük köfteler, nohut ve yoğurtla hazırlanan, özel gün yemeği.</p>
+        </div>
+      </div>
+      
+    
+  
+    
+    
+      <div class="bg-white rounded shadow p-4 flex">
+        
+        <img src="/static/images/lebeniye.jpg" class="w-24 h-24 object-cover rounded mr-4" />
+        
+        <div>
+          <h3 class="font-semibold text-lg"><a href="/recipes/4">Lebeniye</a></h3>
+          <p class="text-sm text-gray-600">Pirinç ve dövme ile yapılan yoğurtlu çorba.</p>
+        </div>
+      </div>
+      
+    
+  
+    
+    
+      <div class="bg-white rounded shadow p-4 flex">
+        
+        <img src="/static/images/alinazik.jpg" class="w-24 h-24 object-cover rounded mr-4" />
+        
+        <div>
+          <h3 class="font-semibold text-lg"><a href="/recipes/5">Alinazik</a></h3>
+          <p class="text-sm text-gray-600">Közlenmiş patlıcan püresi üzerine yoğurt ve kıyma ile servis edilir.</p>
+        </div>
+      </div>
+      
+    
+  
+    
+    
+      <div class="bg-white rounded shadow p-4 flex">
+        
+        <img src="/static/images/fistikli_kebap.jpg" class="w-24 h-24 object-cover rounded mr-4" />
+        
+        <div>
+          <h3 class="font-semibold text-lg"><a href="/recipes/6">Fıstıklı Kebap</a></h3>
+          <p class="text-sm text-gray-600">Antep fıstıklı özel kebap.</p>
+        </div>
+      </div>
+      
+    
+  
+    
+    
+      <div class="bg-white rounded shadow p-4 flex">
+        
+        <img src="/static/images/ptlican_kebabı.jpg" class="w-24 h-24 object-cover rounded mr-4" />
+        
+        <div>
+          <h3 class="font-semibold text-lg"><a href="/recipes/7">Patlıcan Kebabı</a></h3>
+          <p class="text-sm text-gray-600">Patlıcan ve kıyma ile yapılan fırın yemeği.</p>
+        </div>
+      </div>
+      
+        
+      
+    
+  
+    
+    
+      <div class="bg-white rounded shadow p-4 flex">
+        
+        <img src="/static/images/muhammara.jpg" class="w-24 h-24 object-cover rounded mr-4" />
+        
+        <div>
+          <h3 class="font-semibold text-lg"><a href="/recipes/8">Muhammara</a></h3>
+          <p class="text-sm text-gray-600">Ceviz ve biber salçası ile yapılan meze.</p>
+        </div>
+      </div>
+      
+    
+  
+    
+    
+      <div class="bg-white rounded shadow p-4 flex">
+        
+        <img src="/static/images/icli_kofte.jpg" class="w-24 h-24 object-cover rounded mr-4" />
+        
+        <div>
+          <h3 class="font-semibold text-lg"><a href="/recipes/9">İçli Köfte</a></h3>
+          <p class="text-sm text-gray-600">İnce bulgur dış kabuk ve kıymalı iç harç ile hazırlanır.</p>
+        </div>
+      </div>
+      
+    
+  
+    
+    
+      <div class="bg-white rounded shadow p-4 flex">
+        
+        <img src="/static/images/eksili_kofte.jpg" class="w-24 h-24 object-cover rounded mr-4" />
+        
+        <div>
+          <h3 class="font-semibold text-lg"><a href="/recipes/10">Ekşili Ufak Köfte</a></h3>
+          <p class="text-sm text-gray-600">Ekşili ve nohutlu sulu köfte yemeği.</p>
+        </div>
+      </div>
+      
+    
+  
+    
+    
+      <div class="bg-white rounded shadow p-4 flex">
+        
+        <img src="/static/images/oz_corbasi.jpg" class="w-24 h-24 object-cover rounded mr-4" />
+        
+        <div>
+          <h3 class="font-semibold text-lg"><a href="/recipes/11">Öz Çorbası</a></h3>
+          <p class="text-sm text-gray-600">Dövme, nohut ve etle yapılan yöresel çorba.</p>
+        </div>
+      </div>
+      
+    
+  
+    
+    
+      <div class="bg-white rounded shadow p-4 flex">
+        
+        <img src="/static/images/katmer.jpg" class="w-24 h-24 object-cover rounded mr-4" />
+        
+        <div>
+          <h3 class="font-semibold text-lg"><a href="/recipes/12">Katmer</a></h3>
+          <p class="text-sm text-gray-600">İçinde kaymak ve fıstık konan kahvaltılık tatlı.</p>
+        </div>
+      </div>
+      
+    
+  
+    
+    
+      <div class="bg-white rounded shadow p-4 flex">
+        
+        <img src="/static/images/havuc_dilimi.jpg" class="w-24 h-24 object-cover rounded mr-4" />
+        
+        <div>
+          <h3 class="font-semibold text-lg"><a href="/recipes/13">Havuç Dilimi</a></h3>
+          <p class="text-sm text-gray-600">Havuç şekilli, bol fıstıklı çıtır tatlı.</p>
+        </div>
+      </div>
+      
+    
+  
+    
+    
+      <div class="bg-white rounded shadow p-4 flex">
+        
+        <img src="/static/images/kunefe.jpg" class="w-24 h-24 object-cover rounded mr-4" />
+        
+        <div>
+          <h3 class="font-semibold text-lg"><a href="/recipes/14">Künefe</a></h3>
+          <p class="text-sm text-gray-600">Tel kadayıf ve peynir ile yapılan sıcak tatlı.</p>
+        </div>
+      </div>
+      
+    
+  
+    
+    
+      <div class="bg-white rounded shadow p-4 flex">
+        
+        <img src="/static/images/patlican_kebabi.jpg" class="w-24 h-24 object-cover rounded mr-4" />
+        
+        <div>
+          <h3 class="font-semibold text-lg"><a href="/recipes/15">Patlıcan Kebabı</a></h3>
+          <p class="text-sm text-gray-600">Patlıcan ve kıyma katmanlarıyla yapılan fırın yemeği.</p>
+        </div>
+      </div>
+      
+        
+      
+    
+  
+</div>
+
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center">
+        <p class="text-sm text-gray-600">© 2025 Gaziantep Lezzet Rehberi. Tüm hakları saklıdır.</p>
+        <div class="mt-3 sm:mt-0">
+          <a href="#" class="text-sm text-gray-600 hover:text-green-600 mr-4">Gizlilik</a>
+          <a href="#" class="text-sm text-gray-600 hover:text-green-600">İletişim</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

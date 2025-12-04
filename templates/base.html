@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{"Gaziantep Lezzet Rehberi"}} - {{ block.super() }}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": {
+                DEFAULT: '#4D7C4D',
+                light: '#D8E6D8',
+                dark: '#2B4B2B'
+              },
+              "background": {
+                light: '#FCFBF8',
+                dark: '#1C1C1A'
+              },
+              "text": {
+                light: '#262626',
+                dark: '#E3E3E3'
+              },
+              "subtle": {
+                light: '#595959',
+                dark: '#A6A6A6'
+              }
+            },
+            fontFamily: {
+              "display": ["Nunito Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+    <style>
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24 }
+      .footer-bg { background-color: #D8E6D8; }
+      .dark .footer-bg { background-color: #2B4B2B; }
+      .text-content-light { color: #262626; }
+      .dark .text-content-light { color: #E3E3E3; }
+      .text-content-subtle-light { color: #595959; }
+      .dark .text-content-subtle-light { color: #A6A6A6; }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='hero_palette.css') }}">
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <!-- Header -->
+    <header class="bg-white shadow">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-6">
+          <div class="flex items-center">
+            <a href="{{ url_for('index') }}" class="flex items-center gap-3">
+              <img src="{{ url_for('static', filename='logo.png') }}" alt="Gaziantep Lezzet Rehberi" class="w-10 h-10 object-cover rounded-full shadow-sm" onerror="this.style.display='none'" />
+              <div>
+                <div class="text-lg font-bold text-primary">Gaziantep Lezzet Rehberi</div>
+                <div class="text-xs text-gray-500">Lezzetin Başkentine Hoş Geldiniz</div>
+              </div>
+            </a>
+            <nav class="ml-8 space-x-4 text-sm">
+              <a href="{{ url_for('index') }}" class="text-gray-700 hover:text-primary-dark">Ana Sayfa</a>
+              <a href="{{ url_for('recipes') }}" class="text-gray-700 hover:text-primary-dark">Lezzetler</a>
+              <a href="{{ url_for('places') }}" class="text-gray-700 hover:text-primary-dark">Mekanlar</a>
+              <a href="{{ url_for('about') }}" class="text-gray-700 hover:text-primary-dark">Hakkında</a>
+            </nav>
+          </div>
+          <div><!-- login button removed per user request -->
+          </div>
+        </div>
+      </div>
+    </header>
+
+    {% block page_hero %}{% endblock %}
+    
+    <!-- Main -->
+    <main class="py-10">
+      <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
+        {% block content %}{% endblock %}
+      </div>
+    </main>
+
+    <!-- Floating contact button -->
+    <a href="{{ url_for('contact') }}" aria-label="İletişim" class="fixed bottom-6 right-6 z-50 inline-flex items-center justify-center rounded-full bg-primary text-white shadow-lg hover:scale-105 transform transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" style="width:56px;height:56px;">
+      <span class="material-symbols-outlined">mail</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center">
+        <p class="text-sm text-gray-600">© {{ 2025 }} Gaziantep Lezzet Rehberi. Tüm hakları saklıdır.</p>
+      </div>
+    </footer>
+  </body>
+</html>

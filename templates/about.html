@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Antep Fıstığı - Hakkımızda{% endblock %}
+
+{% block page_hero %}
+<section class="relative h-[75vh] min-h-[480px] w-full flex items-center justify-center text-center text-white px-4">
+  <div aria-hidden="true" class="absolute inset-0 bg-black/50"></div>
+  <img class="absolute inset-0 h-full w-full object-cover" data-alt="Silhouettes from Gaziantep's coppersmiths' bazaar against a warm, glowing background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiiaFFCHrrQkPwr1fILgyDeYAETzsas7Nu09TrbX6iNxEguJm7uhwPMRrpPgi8x9huOvMvok3_JDSpF7lJ6OTHvhDzugSITxp_YZ90mHg2LrHq85gwDP3slenbsmP7xKRY9U65k7wZlsRSG-LZdRio9D2SkU8qEPIMZIEEronHHogqDXCbJXYpd82UMfQCrSogmry3zNkkGzM5qxwTljHnY4KjVOzBNNnRGwDqaxeYw4ceh7o4p3bg33SIPnSnY5fmbE101yy7PEBn" alt="Hero"/>
+  <div class="relative z-10 flex flex-col items-center gap-6 max-w-3xl">
+    <h1 class="font-display text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl">Tarih Boyunca Bir Mutfak Yolculuğu</h1>
+    <p class="text-lg font-light leading-relaxed text-white/90 sm:text-xl">Gaziantep'in bereketli topraklarından sofralarınıza uzanan asırlık bir lezzet hikayesi.</p>
+  </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<section class="py-16 sm:py-24 bg-background-light dark:bg-background-dark">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="font-display text-3xl font-bold tracking-tight text-primary sm:text-4xl">UNESCO Gastronomi Şehrine Hoş Geldiniz!</h2>
+    <p class="mt-6 text-lg leading-8 text-content-subtle-light">Tarihin, ticaret yollarının ve bereketli toprakların kesişim noktasında doğan Gaziantep mutfağı, 250'den fazla özgün çeşidiyle bir lezzet destanıdır.
+
+  2015 yılında UNESCO Yaratıcı Şehirler Ağı'na katılarak tescillenen bu zengin kültür, sadece bir yemek değil, bir yaşam biçimidir. Kebapların, tencere yemeklerinin, beyranın, yuvalamanın ve elbette ki dünyaca ünlü Antep fıstıklı baklavanın başkenti olan bu şehir, her damak zevkine hitap eden bir şölen sunar.
+
+  "Gaziantep Lezzet Rehberi" olarak biz, bu eşsiz kültürel mirası modern bir dille sizlere sunmak, en otantik tatları bulmanıza rehberlik etmek ve Gaziantep'in binlerce yıllık lezzet sırlarını kapınıza getirmek için yola çıktık. Lezzet dolu bir yolculuğa hazır mısınız?</p>
+  </div>
+</section>
+
+<section class="pb-16 sm:pb-24 bg-background-light dark:bg-background-dark">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class="space-y-6">
+        <span class="text-sm font-semibold uppercase tracking-wider text-primary">Misyonumuz</span>
+        <h2 class="font-display text-3xl font-bold tracking-tight text-content-light sm:text-4xl lg:text-5xl">Lezzeti ve Geleneği Yaşatmak</h2>
+        <p class="text-lg leading-relaxed text-content-subtle-light">Amacımız, sadece en iyi kebap, baklava ve tencere yemeklerini nerede bulacağınızı göstermekle kalmayıp, aynı zamanda her bir lezzetin ardındaki tarihi hikâyeyi, ustalık geleneğini ve kültürel derinliği ziyaretçilerimize sunmaktır.
+
+      Biz, Gaziantep'in eşsiz gastronomi hazinesini keşfetmek isteyen yerel halktan global gurmelere kadar herkese güvenilir, kapsamlı ve iştah açıcı bir rehberlik deneyimi sunmayı taahhüt ediyoruz.</p>
+      </div>
+      <div class="relative h-80 lg:h-full min-h-[320px] w-full overflow-hidden rounded-xl shadow-lg">
+        <img class="absolute inset-0 h-full w-full object-cover" data-alt="Close-up shot of uncooked pistachio baklava, showcasing layers of phyllo and vibrant green pistachios." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd7aeELTEtOUGLEPLZOS7UmbIPpDIr9grRzh1p2hZumPwyu1l6ZX3LW4WzeLZjm-Mtvzz4DpRSvjem3QcoGhtlklWvUs4u43aOUrpausz1IlZC_391PvjeOfP8SISJSOQTfd0PIwV0yN-6EfFUQArahWZ5M32WBAU_GaI593H6e6VKDaD1JAzAtFQkwz7suO-Epcj7C9CqIYHS4TQQNDPKt0-Voseix82iS1NN8X78q3gveA3niiztjQGkxngkqOtJlwYmyVdIDP8T" alt="About image"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

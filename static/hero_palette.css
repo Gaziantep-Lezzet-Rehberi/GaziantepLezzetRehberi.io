@@ -1,0 +1,30 @@
+:root {
+  /* Primary branding */
+  --primary: #49ec13;
+  --background-light: #f6f8f6;
+  --background-dark: #152210;
+  --light-sage-green: #D5E0D7;
+  --creamy-beige: #F5F0E8;
+  --light-terracotta: #E8B3A2;
+  --off-white: #FCFCFC;
+
+  /* Footer / dark variations */
+  --footer-dark: #1a2c15;
+
+  /* Text colors */
+  --text-main: #131811;
+  --text-subtle: #6b8961;
+  --text-subtle-dark: #a2bcae;
+
+  /* Hero/button specific variables (used by style.css) */
+  --hero-accent1: var(--primary);
+  --hero-accent2: #047857; /* darker green fallback */
+  --hero-overlay1: rgba(26,44,21,0.6); /* dark green overlay */
+  --hero-overlay2: rgba(26,44,21,0.28);
+}
+
+.dark {
+  --background: var(--background-dark);
+  --text-main: var(--off-white);
+  --text-subtle: var(--text-subtle-dark);
+}

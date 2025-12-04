@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Tüm Lezzetler{% endblock %}
+
+{% block content %}
+<div class="mb-6">
+  <form method="get" class="flex gap-2">
+    <input name="q" value="{{ q }}" placeholder="Ara..." class="w-full border rounded px-3 py-2" />
+    <select name="category" class="border rounded px-3 py-2">
+      <option value="">Tümü</option>
+      <option value="Tatlılar" {% if category=='Tatlılar' %}selected{% endif %}>Tatlılar</option>
+      <option value="Kebaplar" {% if category=='Kebaplar' %}selected{% endif %}>Kebaplar</option>
+      <option value="İçecekler" {% if category=='İçecekler' %}selected{% endif %}>İçecekler</option>
+      <option value="Çorbalar" {% if category=='Çorbalar' %}selected{% endif %}>Çorbalar</option>
+    </select>
+    <button class="bg-green-600 text-white px-4 py-2 rounded">Ara</button>
+  </form>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+  {% set ns = namespace(pcount=0) %}
+  {% for r in recipes %}
+    {# If recipe name contains Patlıcan, limit to first occurrence #}
+    {% if 'Patlıcan' in r.name and ns.pcount >= 1 %}
+      {# skip rendering this extra Patlıcan kebabı #}
+    {% else %}
+      <div class="bg-white rounded shadow p-4 flex">
+        {% if r.image_url %}
+        <img src="{{ r.image_url }}" class="w-24 h-24 object-cover rounded mr-4" />
+        {% endif %}
+        <div>
+          <h3 class="font-semibold text-lg"><a href="{{ url_for('recipe_detail', recipe_id=r.id) }}">{{ r.name }}</a></h3>
+          <p class="text-sm text-gray-600">{{ r.description[:120] }}{% if r.description|length>120 %}...{% endif %}</p>
+        </div>
+      </div>
+      {% if 'Patlıcan' in r.name %}
+        {% set ns.pcount = ns.pcount + 1 %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% endblock %}
