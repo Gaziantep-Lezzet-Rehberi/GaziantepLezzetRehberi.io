@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
-from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, SelectField, IntegerField, SubmitField
-from wtforms.validators import DataRequired
+# Contact form removed — contact page is no longer part of the site
 import os
 
 app = Flask(__name__)
@@ -40,11 +38,7 @@ class Place(db.Model):
 	image_url = db.Column(db.String(300))
 
 
-class ContactForm(FlaskForm):
-	name = StringField('İsim', validators=[DataRequired()])
-	email = StringField('E-posta', validators=[DataRequired()])
-	message = TextAreaField('Mesaj', validators=[DataRequired()])
-	submit = SubmitField('Gönder')
+# ...contact form removed...
 
 
 @app.route('/')
@@ -102,13 +96,7 @@ def api_recipes():
 	return jsonify(data)
 
 
-@app.route('/contact', methods=['GET', 'POST'])
-def contact():
-	form = ContactForm()
-	if form.validate_on_submit():
-		flash('Mesajınız alındı, teşekkürler!', 'success')
-		return redirect(url_for('contact'))
-	return render_template('contact.html', form=form)
+# Contact route removed — contact page has been removed from the site
 
 
 if __name__ == '__main__':
