@@ -93,4 +93,4 @@ a { color: #059669; text-decoration: none; }
 
 /* Ensure hero buttons match */
 .btn-primary { display:inline-flex; align-items:center; justify-content:center; min-width:84px; height:48px; padding:0 1.25rem; border-radius:0.5rem; }
-.btn-outline { background: rgba(255,255,255,0.06); }
+ .btn-outline { background: rgba(255,255,255,0.06); }

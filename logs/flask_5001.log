@@ -1,0 +1,175 @@
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.126:5001
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 232-219-892
+127.0.0.1 - - [06/Dec/2025 14:24:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:24:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:26:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:26:26] "GET /static/logo.png HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 14:26:26] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:26:26] "GET /static/images/beyran.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:26:26] "GET /static/hero_palette.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:26:26] "GET /static/images/baklava.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:26:26] "GET /static/images/yuvalama.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:26:26] "GET /static/images/lebeniye.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:26:26] "GET /static/images/hero.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:26:26] "GET /favicon.ico HTTP/1.1" 404 -
+192.168.1.126 - - [06/Dec/2025 14:26:38] code 400, message Bad request version ('::\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063JJ\x00\x00\x00#\x00\x00\x00')
+192.168.1.126 - - [06/Dec/2025 14:26:38] "\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03nqzâ\x95\x1c\x9a²ß\x8a\x84=ñ¿@XbÉ\x0d(\x0f?\x17\x11\x8c\x07Ó\xf0\x0eá09 åçÈ\x97\x90rN³\x03 ÓÅÏá\x08\x1bÙÏTWâ}\x8e¤[8¼BÏ½p¨\x00 ::\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063JJ\x00\x00\x00#\x00\x00\x00" 400 -
+192.168.1.126 - - [06/Dec/2025 14:26:38] code 400, message Bad request version ("{\x12Q'39üg\\ji")
+192.168.1.126 - - [06/Dec/2025 14:26:38] "\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03ú\x87\x04¸ê\x83\xfeû\x91\x0b\x94\xdd\x82\x17\x97Ù\x18åº\x9aiYZ¤^\xde:\x8eª;Fä NÉ´BÀ\x9a\x9b\x1ezp;\x95O­Ï\xdd\x8d\x93\x90ì\xdeñ³\x9d\xf0I8a\x1a¹¡\x1a\x00 úú\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06szz\x00\x00\x00\x0b\x00\x02\x01\x00\x00\x12\x00\x00\x00-\x00\x02\x01\x01\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1\x00#\x00\x00\x003\x04ï\x04ízz\x00\x01\x00\x11ì\x04ÀßË\x08ºÌa\x1ddµÃüj\x95\x06« uGÈõ;á\x00 ôÓ>t Toòh\x86\x04R\x04C"`\x1a\x8d¬\x00\x83ùãhNÖ>½\x08¤ÖGQjh¦\x8b»a5,\x13©Rw¹£\x92B§&àË°\x9au\x1cÄÊ\x0e\x1d\x1bp\x04æ:òõ0dÄ+Ù°{\x16\x0bÉ\x0c¢R7\x94\x9bdr;çB\x97¸àebåÍ¾z+sÅ<\xdd\x13 \x0bÜ°<ør÷fs\x15\x82µi\x80>\xfe\x80>:\x15\x9b\x8bsI\x18¼\x81"QEñ©\x08O%ZÑå\x88oZ5maN?Ålk c¦\x89\x100°J\x14FeB\xd0¾\x1dqY\xdd@È\x9c\x1b\x99E\x06n÷p\x8d©\x02WÅ\x916HH8`FNIt®Ó\x91,ËA\x06\x8e\x91\x99¼\x17DHb\x8ca<\x1f\xfd@\x86¨\x0c\x9fÈ@\x9cò[|Ä\x19p;\x88£DÇnâ°´±*u[âu±2\x82)J\x14\x92É8ñÂqk#\x98#æ\x8a\x11ê»\x9fÙ{\x08áÁ{\x02d\x8e\x9c\x0d¦h>÷R\x17ÂÉiáÆ\x11TE=\x91iÄ\x98\x19qm&&Au{\x16\x8c\x8dÅj\x86hõ9\x1b\x07]wÙfcEµ¿'»eQ©x\x07u£J\x8en%Æ>fjJ\x91\x0e²:C\x98°h)ã\x12ÉD\x08NÆ#$TË\xdd\x0cTÙ|7§\x07­í:l¨4±¾±=\x1c°X\x1dERS:.¦°\x19\x03E\x9eÌË\x1f\x06\x91hn¨\x03&\\(zDÍ\x95`j¸ë\x1d²\x1c\x8cø\x9a\x05Ë×\x01·\x92¿Ù\x90 \x01\x10\x87ä\x99H\x89\xd0³\x0f\x17Ä\x1bv6CÕ!×c¸à1o\x18ª¯D\x17ÌQ\x18\x00?8h\x1dºu\x8bÚ\x9fm\x92\x04|9+\xfeÃ\x10Ñµ\x93|\x01Å\x8f\x05¢|\x96W=\x9aÁõ¡NÛÆ\x1f\x08X\x0e\x0c{\x12Q'39üg\\ji" 400 -
+192.168.1.126 - - [06/Dec/2025 14:26:40] "GET / HTTP/1.1" 200 -
+192.168.1.126 - - [06/Dec/2025 14:26:40] "GET /static/style.css HTTP/1.1" 200 -
+192.168.1.126 - - [06/Dec/2025 14:26:40] "GET /static/hero_palette.css HTTP/1.1" 200 -
+192.168.1.126 - - [06/Dec/2025 14:26:40] "GET /static/logo.png HTTP/1.1" 404 -
+192.168.1.126 - - [06/Dec/2025 14:26:40] "GET /static/images/beyran.jpg HTTP/1.1" 200 -
+192.168.1.126 - - [06/Dec/2025 14:26:40] "GET /static/images/baklava.jpg HTTP/1.1" 200 -
+192.168.1.126 - - [06/Dec/2025 14:26:40] "GET /static/images/yuvalama.jpg HTTP/1.1" 200 -
+192.168.1.126 - - [06/Dec/2025 14:26:40] "GET /static/images/lebeniye.jpg HTTP/1.1" 200 -
+192.168.1.126 - - [06/Dec/2025 14:26:41] "GET /static/images/hero.jpg HTTP/1.1" 200 -
+192.168.1.126 - - [06/Dec/2025 14:26:41] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 14:26:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:26:48] "GET /static/hero_palette.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:26:48] "GET /static/logo.png HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 14:26:48] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:26:48] "GET /static/images/beyran.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:26:48] "GET /static/images/baklava.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:26:48] "GET /static/images/yuvalama.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:26:48] "GET /static/images/lebeniye.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:26:48] "GET /static/images/hero.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:26:48] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 14:36:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:36:28] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:28] "GET /static/hero_palette.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:28] "GET /static/images/beyran.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:28] "GET /static/logo.png HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 14:36:28] "GET /static/images/yuvalama.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:28] "GET /static/images/baklava.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:28] "GET /static/images/lebeniye.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:28] "GET /static/images/hero.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /recipes HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/beyran.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/hero_palette.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/logo.png HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/yuvalama.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/lebeniye.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/baklava.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/alinazik.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/fistikli_kebap.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/patlican_kebabi.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/icli_kofte.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/muhammara.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/eksili_ufak_kofte.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/katmer.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/oz_corbasi.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/havuc_dilimi.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/kunefe.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/kusleme.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/menengic_kahvesi.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/zahter_cayi.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/meyan_serbeti.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/nar_eksisi_serbeti.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 14:36:30] "GET /static/images/yoresel-ayran.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 14:36:35] "GET /recipes/17 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:36:35] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:36:35] "GET /static/logo.png HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 14:36:35] "GET /static/hero_palette.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:49:48] "GET /recipes HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:50:21] "GET /recipes/17 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:50:21] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:50:21] "GET /static/logo.png HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 14:50:21] "GET /static/hero_palette.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:50:22] "GET /static/images/simit_kebabi.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:54:35] "GET /recipes HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:54:48] "GET /recipes/17 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:54:48] "GET /static/logo.png HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 14:54:48] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:54:48] "GET /static/hero_palette.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:54:48] "GET /static/images/simit_kebabi.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:56:16] "GET /recipes/17 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:56:16] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:56:16] "GET /static/logo.png HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 14:56:16] "GET /static/images/simit_kebabi.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:56:16] "GET /static/hero_palette.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:57:36] "GET /recipes/17 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:57:36] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:57:36] "GET /static/logo.png HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 14:57:36] "GET /static/images/simit_kebabi.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:57:36] "GET /static/hero_palette.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:59:02] "GET /recipes/17 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:59:03] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 14:59:03] "GET /static/images/simit_kebabi.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:59:03] "GET /static/hero_palette.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 14:59:03] "GET /static/logo.png HTTP/1.1" 404 -
+ * Detected change in 'C:\\Users\\aleyn\\OneDrive\\Desktop\\FLASK\\tools\\set_simit_image_link.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 232-219-892
+127.0.0.1 - - [06/Dec/2025 15:00:06] "GET /recipes/17 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 15:00:06] "GET /static/logo.png HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 15:00:06] "GET /static/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 15:00:06] "GET /static/hero_palette.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:06] "GET /static/images/simit_kebabi.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /recipes HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/hero_palette.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/logo.png HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/beyran.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/baklava.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/yuvalama.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/lebeniye.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/alinazik.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/fistikli_kebap.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/patlican_kebabi.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/muhammara.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/icli_kofte.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/eksili_ufak_kofte.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/oz_corbasi.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/katmer.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/havuc_dilimi.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/kusleme.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/kunefe.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/simit_kebabi.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/menengic_kahvesi.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/meyan_serbeti.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/zahter_cayi.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/nar_eksisi_serbeti.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 15:00:13] "GET /static/images/yoresel-ayran.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 15:28:43] "GET /recipes HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 15:28:43] "GET /static/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:28:43] "GET /static/hero_palette.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:28:43] "GET /static/logo.png HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 15:28:43] "GET /static/images/beyran.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/yuvalama.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/baklava.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/lebeniye.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/alinazik.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/fistikli_kebap.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/patlican_kebabi.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/muhammara.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/icli_kofte.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/eksili_ufak_kofte.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/oz_corbasi.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/katmer.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/havuc_dilimi.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/kunefe.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/kusleme.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/simit_kebabi.jpg HTTP/1.1" 304 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/menengic_kahvesi.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/meyan_serbeti.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/zahter_cayi.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/nar_eksisi_serbeti.jpg HTTP/1.1" 404 -
+127.0.0.1 - - [06/Dec/2025 15:28:44] "GET /static/images/yoresel-ayran.jpg HTTP/1.1" 404 -
+ * Detected change in 'C:\\Users\\aleyn\\OneDrive\\Desktop\\FLASK\\app.py', reloading
+ * Restarting with stat
+Traceback (most recent call last):
+  File "C:\Users\aleyn\OneDrive\Desktop\FLASK\app.py", line 8, in <module>
+    from flask_login import LoginManager, login_user, logout_user, login_required, current_user, UserMixin
+ModuleNotFoundError: No module named 'flask_login'

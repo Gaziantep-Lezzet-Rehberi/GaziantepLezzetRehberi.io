@@ -69,13 +69,11 @@
               <a href="{{ url_for('recipes') }}" class="text-gray-700 hover:text-primary-dark">Lezzetler</a>
               <a href="{{ url_for('places') }}" class="text-gray-700 hover:text-primary-dark">Mekanlar</a>
               <a href="{{ url_for('about') }}" class="text-gray-700 hover:text-primary-dark">Hakkında</a>
-              <!-- Admin link added so you can reach the admin CRUD pages -->
-              <a href="{{ url_for('admin_index') }}" class="text-gray-700 hover:text-primary-dark">Admin</a>
+              <!-- Admin link removed per request -->
             </nav>
           </div>
           <div class="flex items-center">
             {% if current_user.is_authenticated and current_user.is_admin %}
-              <a href="{{ url_for('admin_index') }}" class="text-sm text-gray-700 hover:text-primary-dark mr-4">Admin</a>
               <a href="{{ url_for('change_password') }}" class="text-sm text-gray-700 hover:text-primary-dark mr-4">Parola Değiştir</a>
               <a href="{{ url_for('logout') }}" class="text-sm text-gray-700 hover:text-primary-dark">Çıkış</a>
             {% else %}
