@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin – Tarifler{% endblock %}
+
+{% block content %}
+<div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold">Tarif Yönetimi</h1>
+    <a href="{{ url_for('admin_add') }}" class="bg-green-600 text-white px-4 py-2 rounded">
+        + Yeni Tarif Ekle
+    </a>
+</div>
+
+<table class="w-full border-collapse">
+    <thead>
+        <tr class="bg-gray-100 border-b">
+            <th class="p-2 text-left">ID</th>
+            <th class="p-2 text-left">Adı</th>
+            <th class="p-2 text-left">Kategori</th>
+            <th class="p-2 text-left">Resim</th>
+            <th class="p-2 text-left">İşlemler</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for r in recipes %}
+        <tr class="border-b">
+            <td class="p-2">{{ r.id }}</td>
+            <td class="p-2">{{ r.name }}</td>
+            <td class="p-2">{{ r.category }}</td>
+            <td class="p-2">
+                {% if r.image_url %}
+                <img src="{{ r.image_url }}" class="w-12 h-12 object-cover rounded">
+                {% else %}
+                —
+                {% endif %}
+            </td>
+            <td class="p-2 flex gap-2">
+                <a href="{{ url_for('admin_edit', recipe_id=r.id) }}"
+                   class="bg-blue-600 text-white px-3 py-1 rounded">
+                   Düzenle
+                </a>
+
+                <form action="{{ url_for('admin_delete', recipe_id=r.id) }}" method="post"
+                      onsubmit="return confirm('Silmek istediğine emin misin?')">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                    <button class="bg-red-600 text-white px-3 py-1 rounded">
+                        Sil
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin - Yeni Tarif Ekle{% endblock %}
+
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Yeni Tarif Ekle</h1>
+<form method="post" class="space-y-4">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+  <div>
+    <label class="block text-sm">İsim</label>
+    <input name="name" class="w-full border rounded px-2 py-1" required />
+  </div>
+  <div>
+    <label class="block text-sm">Slug</label>
+    <input name="slug" class="w-full border rounded px-2 py-1" required />
+  </div>
+  <div>
+    <label class="block text-sm">Kategori</label>
+    <input name="category" class="w-full border rounded px-2 py-1" required />
+  </div>
+  <div class="flex items-center gap-4">
+    <label class="inline-flex items-center"><input type="checkbox" name="is_meat" /> Etli</label>
+    <label class="inline-block">Pişirme Süresi (dk)</label>
+    <input name="cook_time" class="w-24 border rounded px-2 py-1" />
+  </div>
+  <div>
+    <label class="block text-sm">Zorluk</label>
+    <input name="difficulty" class="w-full border rounded px-2 py-1" />
+  </div>
+  <div>
+    <label class="block text-sm">Porsiyon</label>
+    <input name="servings" class="w-full border rounded px-2 py-1" />
+  </div>
+  <div>
+    <label class="block text-sm">Açıklama</label>
+    <textarea name="description" class="w-full border rounded px-2 py-1" rows="3"></textarea>
+  </div>
+  <div>
+    <label class="block text-sm">Malzemeler</label>
+    <textarea name="ingredients" class="w-full border rounded px-2 py-1" rows="4"></textarea>
+  </div>
+  <div>
+    <label class="block text-sm">Yapılış</label>
+    <textarea name="steps" class="w-full border rounded px-2 py-1" rows="6"></textarea>
+  </div>
+  <div>
+    <label class="block text-sm">Resim URL</label>
+    <input name="image_url" class="w-full border rounded px-2 py-1" />
+  </div>
+  <div>
+    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Ekle</button>
+  </div>
+</form>
+{% endblock %}

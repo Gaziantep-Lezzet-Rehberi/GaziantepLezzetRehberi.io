@@ -1,7 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
 # Contact form removed — contact page is no longer part of the site
 import os
+from functools import wraps
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_wtf import CSRFProtect
+from flask_login import LoginManager, login_user, logout_user, login_required, current_user, UserMixin
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET', 'dev-secret')
@@ -9,6 +13,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///gaziantep.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+csrf = CSRFProtect(app)
+login_manager = LoginManager(app)
+login_manager.login_view = 'login'
 
 
 class Recipe(db.Model):
@@ -36,6 +43,27 @@ class Place(db.Model):
 	description = db.Column(db.Text)
 	rating = db.Column(db.Float)
 	image_url = db.Column(db.String(300))
+
+
+class User(UserMixin, db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	username = db.Column(db.String(80), unique=True, nullable=False)
+	password_hash = db.Column(db.String(200), nullable=False)
+	is_admin = db.Column(db.Boolean, default=False)
+
+	def set_password(self, password: str):
+		self.password_hash = generate_password_hash(password)
+
+	def check_password(self, password: str) -> bool:
+		return check_password_hash(self.password_hash, password)
+
+
+@login_manager.user_loader
+def load_user(user_id):
+	try:
+		return User.query.get(int(user_id))
+	except Exception:
+		return None
 
 
 # ...contact form removed...
@@ -80,6 +108,152 @@ def about():
 	return render_template('about.html')
 
 
+def admin_required(view_func):
+	"""Simple session-based decorator to require admin login."""
+	@wraps(view_func)
+	def wrapped_view(*args, **kwargs):
+		if not current_user.is_authenticated:
+			return redirect(url_for('login', next=request.path))
+		if not getattr(current_user, 'is_admin', False):
+			flash('Bu sayfaya erişim yetkiniz yok.', 'danger')
+			return redirect(url_for('index'))
+		return view_func(*args, **kwargs)
+	return wrapped_view
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+	if request.method == 'POST':
+		username = request.form.get('username', '')
+		password = request.form.get('password', '')
+		user = User.query.filter_by(username=username).first()
+		if user and user.check_password(password):
+			login_user(user)
+			flash('Giriş başarılı.', 'success')
+			next_url = request.args.get('next') or url_for('admin_index')
+			return redirect(next_url)
+		flash('Kullanıcı adı veya parola hatalı.', 'danger')
+	return render_template('login.html')
+
+
+@app.route('/logout')
+def logout():
+	logout_user()
+	flash('Çıkış yapıldı.', 'info')
+	return redirect(url_for('index'))
+
+
+@app.route('/admin')
+@admin_required
+def admin_index():
+	# Admin index: list recipes in reverse creation order
+	recipes = Recipe.query.order_by(Recipe.id.desc()).all()
+	return render_template('admin/index.html', recipes=recipes)
+
+
+@app.route('/admin/change_password', methods=['GET', 'POST'])
+@login_required
+def change_password():
+	# Only admin users may change password here
+	if not getattr(current_user, 'is_admin', False):
+		flash('Bu sayfaya erişim yetkiniz yok.', 'danger')
+		return redirect(url_for('index'))
+
+	if request.method == 'POST':
+		current_pw = request.form.get('current_password', '')
+		new_pw = request.form.get('new_password', '')
+		new_pw2 = request.form.get('new_password2', '')
+		if not current_user.check_password(current_pw):
+			flash('Mevcut parola hatalı.', 'danger')
+			return render_template('change_password.html')
+		if new_pw != new_pw2:
+			flash('Yeni parolalar eşleşmiyor.', 'danger')
+			return render_template('change_password.html')
+		if len(new_pw) < 6:
+			flash('Yeni parola en az 6 karakter olmalı.', 'danger')
+			return render_template('change_password.html')
+		# update password
+		user = User.query.get(current_user.get_id())
+		user.set_password(new_pw)
+		db.session.commit()
+		flash('Parola başarıyla değiştirildi.', 'success')
+		return redirect(url_for('admin_index'))
+
+	return render_template('change_password.html')
+
+
+@app.route('/admin/add', methods=['GET', 'POST'])
+@admin_required
+def admin_add():
+	if request.method == 'POST':
+		name = request.form['name']
+		slug = request.form['slug']
+		category = request.form['category']
+		is_meat = 'is_meat' in request.form
+		cook_time = request.form.get('cook_time') or None
+		difficulty = request.form.get('difficulty')
+		servings = request.form.get('servings') or None
+		description = request.form.get('description')
+		ingredients = request.form.get('ingredients')
+		steps = request.form.get('steps')
+		image_url = request.form.get('image_url')
+
+		new_recipe = Recipe(
+			name=name,
+			slug=slug,
+			category=category,
+			is_meat=is_meat,
+			cook_time=cook_time,
+			difficulty=difficulty,
+			servings=servings,
+			description=description,
+			ingredients=ingredients,
+			steps=steps,
+			image_url=image_url,
+		)
+		db.session.add(new_recipe)
+		db.session.commit()
+		flash("Yeni yemek eklendi!", "success")
+		return redirect(url_for('admin_index'))
+
+	return render_template('admin/add.html')
+
+
+@app.route('/admin/delete/<int:recipe_id>', methods=['POST'])
+@admin_required
+def admin_delete(recipe_id):
+	recipe = Recipe.query.get_or_404(recipe_id)
+	db.session.delete(recipe)
+	db.session.commit()
+	flash("Yemek silindi!", "danger")
+	return redirect(url_for('admin_index'))
+
+
+@app.route('/admin/edit/<int:recipe_id>', methods=['GET', 'POST'])
+@admin_required
+def admin_edit(recipe_id):
+	recipe = Recipe.query.get_or_404(recipe_id)
+
+	if request.method == 'POST':
+		recipe.name = request.form['name']
+		recipe.slug = request.form['slug']
+		recipe.category = request.form['category']
+		recipe.is_meat = 'is_meat' in request.form
+		recipe.cook_time = request.form.get('cook_time') or None
+		recipe.difficulty = request.form.get('difficulty')
+		recipe.servings = request.form.get('servings') or None
+		recipe.description = request.form.get('description')
+		recipe.ingredients = request.form.get('ingredients')
+		recipe.steps = request.form.get('steps')
+		recipe.image_url = request.form.get('image_url')
+
+		db.session.commit()
+		flash("Yemek güncellendi!", "info")
+		return redirect(url_for('admin_index'))
+
+	return render_template('admin/edit.html', recipe=recipe)
+
+
 @app.route('/api/recipes')
 def api_recipes():
 	items = Recipe.query.order_by(Recipe.id).all()
@@ -108,5 +282,27 @@ if __name__ == '__main__':
 		port = 5001
 	debug_env = os.environ.get('FLASK_DEBUG')
 	debug = True if debug_env is None else (debug_env.lower() not in ('0', 'false'))
+
+
+	def create_admin_user():
+		"""Create a default admin user if none exists. Password comes from ADMIN_PASS env or fallback to a sensible default."""
+		admin_user = os.environ.get('ADMIN_USER', 'admin')
+		admin_pass = os.environ.get('ADMIN_PASS', '234356na')
+		with app.app_context():
+			try:
+				# create tables if they don't exist
+				db.create_all()
+			except Exception:
+				pass
+			user = User.query.filter_by(username=admin_user).first()
+			if not user:
+				user = User(username=admin_user, is_admin=True)
+				user.set_password(admin_pass)
+				db.session.add(user)
+				db.session.commit()
+				print(f"Created admin user '{admin_user}' (default or from ADMIN_PASS).")
+
+	create_admin_user()
+
 	app.run(host=host, port=port, debug=debug)
 	

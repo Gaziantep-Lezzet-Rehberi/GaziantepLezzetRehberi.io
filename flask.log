@@ -3,24 +3,52 @@
 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5002
- * Running on http://10.0.0.104:5002
+ * Running on http://192.168.1.129:5002
 [33mPress CTRL+C to quit[0m
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 626-518-451
-127.0.0.1 - - [05/Dec/2025 13:32:08] "HEAD / HTTP/1.1" 200 -
-127.0.0.1 - - [05/Dec/2025 13:32:38] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [05/Dec/2025 13:32:38] "GET /static/style.css HTTP/1.1" 200 -
-127.0.0.1 - - [05/Dec/2025 13:32:38] "GET /static/hero_palette.css HTTP/1.1" 200 -
-127.0.0.1 - - [05/Dec/2025 13:32:38] "[33mGET /static/logo.png HTTP/1.1[0m" 404 -
-127.0.0.1 - - [05/Dec/2025 13:32:38] "GET /static/images/beyran.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [05/Dec/2025 13:32:38] "GET /static/images/baklava.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [05/Dec/2025 13:32:38] "GET /static/images/yuvalama.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [05/Dec/2025 13:32:38] "GET /static/images/lebeniye.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [05/Dec/2025 13:32:39] "[33mGET /static/logo.png HTTP/1.1[0m" 404 -
-127.0.0.1 - - [05/Dec/2025 13:32:39] "GET /static/images/hero.jpg HTTP/1.1" 200 -
-127.0.0.1 - - [05/Dec/2025 13:32:39] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Dec/2025 15:02:31] "HEAD /admin/edit/21 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 15:06:27] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 15:06:27] "[33mGET /static/logo.png HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Dec/2025 15:06:27] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [06/Dec/2025 15:06:27] "[36mGET /static/hero_palette.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [06/Dec/2025 15:06:30] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 15:06:30] "[36mGET /static/hero_palette.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [06/Dec/2025 15:06:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [06/Dec/2025 15:06:30] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [06/Dec/2025 15:06:30] "[33mGET /static/logo.png HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Dec/2025 15:06:30] "[36mGET /static/hero_palette.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [06/Dec/2025 15:06:36] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 15:06:36] "[33mGET /static/logo.png HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Dec/2025 15:06:36] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [06/Dec/2025 15:06:36] "[36mGET /static/hero_palette.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [06/Dec/2025 15:06:46] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 15:06:46] "[33mGET /static/logo.png HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Dec/2025 15:06:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [06/Dec/2025 15:06:46] "[36mGET /static/hero_palette.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [06/Dec/2025 15:06:55] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 15:06:55] "[33mGET /static/logo.png HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Dec/2025 15:06:55] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [06/Dec/2025 15:06:55] "[36mGET /static/hero_palette.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [06/Dec/2025 15:07:06] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [06/Dec/2025 15:07:06] "[33mGET /static/logo.png HTTP/1.1[0m" 404 -
+127.0.0.1 - - [06/Dec/2025 15:07:06] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [06/Dec/2025 15:07:06] "[36mGET /static/hero_palette.css HTTP/1.1[0m" 304 -
  * Detected change in '/Users/nisasevilkaratop/Documents/GitHub/GaziantepLezzetRehberi.io/app.py', reloading
  * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 626-518-451
+Traceback (most recent call last):
+  File "/Users/nisasevilkaratop/Documents/GitHub/GaziantepLezzetRehberi.io/app.py", line 84, in <module>
+    @app.route('/admin')
+     ~~~~~~~~~^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/flask/sansio/scaffold.py", line 362, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/flask/sansio/app.py", line 614, in add_url_rule
+    endpoint = _endpoint_from_view_func(view_func)  # type: ignore
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/flask/sansio/scaffold.py", line 706, in _endpoint_from_view_func
+    return view_func.__name__
+           ^^^^^^^^^^^^^^^^^^
+AttributeError: 'functools.partial' object has no attribute '__name__'. Did you mean: '__ne__'?

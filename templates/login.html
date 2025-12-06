@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Giriş — Gaziantep Lezzet Rehberi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <div class="max-w-md mx-auto mt-24 p-6 bg-white rounded shadow">
+      <h1 class="text-xl font-bold mb-4">Giriş</h1>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, msg in messages %}
+            <div class="mb-2 text-sm text-{{ 'green' if category == 'success' else 'red' }}-600">{{ msg }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <form method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+        <label class="block mb-2 text-sm">Kullanıcı adı
+          <input name="username" class="w-full border rounded p-2 mt-1" required />
+        </label>
+        <label class="block mb-4 text-sm">Parola
+          <input name="password" type="password" class="w-full border rounded p-2 mt-1" required />
+        </label>
+        <div class="flex items-center justify-between">
+          <button type="submit" class="px-4 py-2 bg-primary text-white rounded">Giriş</button>
+          <a href="{{ url_for('index') }}" class="text-sm text-gray-600">Geri</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
