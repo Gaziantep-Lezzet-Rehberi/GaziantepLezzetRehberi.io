@@ -6,6 +6,7 @@
 <h1 class="text-2xl font-bold mb-4">Yeni Tarif Ekle</h1>
 <form method="post" enctype="multipart/form-data" class="space-y-4">
   <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+  <input type="hidden" name="submit_action" id="submit_action" value="save" />
   <div>
     <label class="block text-sm">İsim</label>
     <input name="name" class="w-full border rounded px-2 py-1" required />
@@ -48,7 +49,8 @@
     <input type="file" name="resim" accept="image/*" class="w-full" />
   </div>
   <div>
-    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Ekle</button>
+    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded" onclick="document.getElementById('submit_action').value='save'">Ekle</button>
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded ml-2" onclick="document.getElementById('submit_action').value='save_view'">Kaydet ve Görüntüle</button>
   </div>
 </form>
 {% endblock %}
