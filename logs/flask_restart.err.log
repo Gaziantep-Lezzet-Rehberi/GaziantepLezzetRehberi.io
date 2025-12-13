@@ -648,3 +648,7 @@ C:\Users\aleyn\OneDrive\Desktop\FLASK\app.py:64: LegacyAPIWarning: The Query.get
 127.0.0.1 - - [13/Dec/2025 16:23:44] "GET /static/images/lebeniye.jpg HTTP/1.1" 304 -
 127.0.0.1 - - [13/Dec/2025 16:23:44] "GET /static/images/yuvalama.jpg HTTP/1.1" 304 -
 127.0.0.1 - - [13/Dec/2025 16:23:44] "GET /static/images/hero.jpg HTTP/1.1" 304 -
+ * Detected change in 'C:\\Users\\aleyn\\OneDrive\\Desktop\\FLASK\\tools\\list_kulbasti.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 244-857-653
