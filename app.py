@@ -251,6 +251,9 @@ def admin_add():
 		db.session.add(new_recipe)
 		db.session.commit()
 		flash("Yeni yemek eklendi!", "success")
+		# If the admin clicked "Kaydet ve Görüntüle", redirect to the recipe detail page
+		if request.form.get('submit_action') == 'save_view':
+			return redirect(url_for('recipe_detail', recipe_id=new_recipe.id))
 		return redirect(url_for('admin_index'))
 
 	return render_template('admin/add.html')
@@ -319,6 +322,9 @@ def admin_edit(recipe_id):
 
 		db.session.commit()
 		flash("Yemek güncellendi!", "info")
+		# If the admin clicked "Kaydet ve Görüntüle", redirect to the recipe detail page
+		if request.form.get('submit_action') == 'save_view':
+			return redirect(url_for('recipe_detail', recipe_id=recipe.id))
 		return redirect(url_for('admin_index'))
 
 	return render_template('admin/edit.html', recipe=recipe)
