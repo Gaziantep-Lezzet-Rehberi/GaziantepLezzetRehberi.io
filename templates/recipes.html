@@ -31,6 +31,11 @@
         <div>
           <h3 class="font-semibold text-lg"><a href="{{ url_for('recipe_detail', recipe_id=r.id) }}">{{ r.name }}</a></h3>
           <p class="text-sm text-gray-600">{{ r.description[:120] }}{% if r.description|length>120 %}...{% endif %}</p>
+          {% if current_user.is_authenticated and current_user.is_admin %}
+            <div class="mt-2">
+              <a href="{{ url_for('admin_edit', recipe_id=r.id) }}" class="text-xs bg-blue-600 text-white px-2 py-1 rounded">Düzenle</a>
+            </div>
+          {% endif %}
         </div>
       </div>
       {% if 'Patlıcan' in r.name %}

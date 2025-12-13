@@ -4,7 +4,7 @@
 
 {% block content %}
 <h1 class="text-2xl font-bold mb-4">Tarif Düzenle: {{ recipe.name }}</h1>
-<form method="post" class="space-y-4">
+<form method="post" enctype="multipart/form-data" class="space-y-4">
   <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
   <div>
     <label class="block text-sm">İsim</label>
@@ -44,7 +44,20 @@
     <textarea name="steps" class="w-full border rounded px-2 py-1" rows="6">{{ recipe.steps or '' }}</textarea>
   </div>
   <div>
-    <!-- Resim URL input removed per request -->
+    <label class="block text-sm">Mevcut Resim</label>
+    {% if recipe.image_url %}
+      <div class="mb-2">
+        <img src="{{ image_url(recipe.image_url) }}" class="w-32 h-32 object-cover rounded" />
+      </div>
+      <label class="inline-flex items-center"><input type="checkbox" name="remove_image" value="1" /> Resmi Kaldır</label>
+    {% else %}
+      <div class="text-sm text-gray-600">(Henüz resim yok)</div>
+    {% endif %}
+
+    <div class="mt-2">
+      <label class="block text-sm">Yeni Resim Yükle</label>
+      <input type="file" name="resim" accept="image/*" class="w-full" />
+    </div>
   </div>
   <div class="flex gap-2">
     <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Güncelle</button>

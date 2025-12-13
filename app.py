@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash, ses
 from flask_sqlalchemy import SQLAlchemy
 # Contact form removed — contact page is no longer part of the site
 import os
+import time
 from functools import wraps
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
@@ -37,6 +38,9 @@ def image_url(value):
 		return value
 	# treat as filename stored in DB
 	return url_for('static', filename=f'uploads/{value}')
+
+# Ensure template global is present in the Jinja environment (defensive)
+app.jinja_env.globals['image_url'] = image_url
 
 
 class Recipe(db.Model):
@@ -222,11 +226,12 @@ def admin_add():
 		image_file = request.files.get('resim')
 		if image_file and getattr(image_file, 'filename', None):
 			filename = secure_filename(image_file.filename)
+			unique = f"{int(time.time())}_{filename}"
 			try:
-				save_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+				save_path = os.path.join(app.config['UPLOAD_FOLDER'], unique)
 				image_file.save(save_path)
 				# store a public URL path
-				image_url = f"/static/uploads/{filename}"
+				image_url = f"/static/uploads/{unique}"
 			except Exception as e:
 				flash(f'Resim kaydedilemedi: {e}', 'danger')
 
@@ -277,7 +282,40 @@ def admin_edit(recipe_id):
 		recipe.description = request.form.get('description')
 		recipe.ingredients = request.form.get('ingredients')
 		recipe.steps = request.form.get('steps')
-		recipe.image_url = request.form.get('image_url')
+		# image handling: keep existing unless a new file uploaded or remove requested
+		remove = 'remove_image' in request.form
+		image_file = request.files.get('resim')
+		if image_file and getattr(image_file, 'filename', None):
+			filename = secure_filename(image_file.filename)
+			unique = f"{int(time.time())}_{filename}"
+			old_image = recipe.image_url
+			try:
+				save_path = os.path.join(app.config['UPLOAD_FOLDER'], unique)
+				image_file.save(save_path)
+				# set public path
+				recipe.image_url = f"/static/uploads/{unique}"
+				# remove old file if different
+				if old_image:
+					try:
+						old_fname = os.path.basename(old_image)
+						old_path = os.path.join(app.config['UPLOAD_FOLDER'], old_fname)
+						if os.path.exists(old_path) and old_path != save_path:
+							os.remove(old_path)
+					except Exception:
+						pass
+			except Exception as e:
+				flash(f'Resim kaydedilemedi: {e}', 'danger')
+		elif remove:
+			# delete existing file if present
+			if recipe.image_url:
+				try:
+					fname = os.path.basename(recipe.image_url)
+					path = os.path.join(app.config['UPLOAD_FOLDER'], fname)
+					if os.path.exists(path):
+						os.remove(path)
+				except Exception:
+					pass
+			recipe.image_url = None
 
 		db.session.commit()
 		flash("Yemek güncellendi!", "info")
