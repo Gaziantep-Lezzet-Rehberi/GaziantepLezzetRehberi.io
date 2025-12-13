@@ -29,7 +29,7 @@
             <td class="p-2">{{ r.category }}</td>
             <td class="p-2">
                 {% if r.image_url %}
-                <img src="{{ r.image_url }}" class="w-12 h-12 object-cover rounded">
+                <img src="{{ image_url(r.image_url) }}" class="w-12 h-12 object-cover rounded">
                 {% else %}
                 —
                 {% endif %}

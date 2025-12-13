@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 from functools import wraps
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 from flask_wtf import CSRFProtect
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user, UserMixin
 
@@ -11,11 +12,31 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET', 'dev-secret')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///gaziantep.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# Upload folder for recipe images
+app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static', 'uploads')
+os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 db = SQLAlchemy(app)
 csrf = CSRFProtect(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
+
+
+@app.template_global()
+def image_url(value):
+	"""Normalize stored image value to a public URL.
+
+	- If value is already an absolute URL or starts with /static/, return as-is.
+	- If value is a bare filename (e.g. 'patlican.jpg'), return url_for('static', filename='uploads/<name>').
+	- If value is None/empty, return None.
+	"""
+	if not value:
+		return None
+	# already a public path or full url
+	if isinstance(value, str) and (value.startswith('/') or value.startswith('http://') or value.startswith('https://')):
+		return value
+	# treat as filename stored in DB
+	return url_for('static', filename=f'uploads/{value}')
 
 
 class Recipe(db.Model):
@@ -196,7 +217,18 @@ def admin_add():
 		description = request.form.get('description')
 		ingredients = request.form.get('ingredients')
 		steps = request.form.get('steps')
-		image_url = request.form.get('image_url')
+		# handle uploaded image (file input named 'resim')
+		image_url = None
+		image_file = request.files.get('resim')
+		if image_file and getattr(image_file, 'filename', None):
+			filename = secure_filename(image_file.filename)
+			try:
+				save_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+				image_file.save(save_path)
+				# store a public URL path
+				image_url = f"/static/uploads/{filename}"
+			except Exception as e:
+				flash(f'Resim kaydedilemedi: {e}', 'danger')
 
 		new_recipe = Recipe(
 			name=name,

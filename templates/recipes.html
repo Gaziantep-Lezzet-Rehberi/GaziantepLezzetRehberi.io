@@ -25,9 +25,9 @@
       {# skip rendering this extra Patlıcan kebabı #}
     {% else %}
       <div class="bg-white rounded shadow p-4 flex">
-        {% if r.image_url %}
-        <img src="{{ r.image_url }}" class="w-24 h-24 object-cover rounded mr-4" />
-        {% endif %}
+  {% if r.image_url %}
+  <img src="{{ image_url(r.image_url) }}" class="w-24 h-24 object-cover rounded mr-4" />
+  {% endif %}
         <div>
           <h3 class="font-semibold text-lg"><a href="{{ url_for('recipe_detail', recipe_id=r.id) }}">{{ r.name }}</a></h3>
           <p class="text-sm text-gray-600">{{ r.description[:120] }}{% if r.description|length>120 %}...{% endif %}</p>

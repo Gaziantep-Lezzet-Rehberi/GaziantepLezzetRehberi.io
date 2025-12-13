@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}Admin - Yeni Tarif Ekle{% endblock %}
+{% block title %}Tarif Ekle{% endblock %}
 
 {% block content %}
-<h1 class="text-2xl font-bold mb-4">Yeni Tarif Ekle</h1>
-<form method="post" enctype="multipart/form-data" class="space-y-4">
+<h1 class="text-2xl font-bold mb-4">Tarif Gönder</h1>
+<p>Bu form, tarif göndermek için örnek bir sayfadır. Backend bağlamak isterseniz form action = "/tarif_ekle" olacak şekilde ayarlanmıştır.</p>
+
+<form method="post" enctype="multipart/form-data" class="space-y-4" action="/tarif_ekle">
   <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
   <div>
     <label class="block text-sm">İsim</label>
@@ -17,19 +19,6 @@
   <div>
     <label class="block text-sm">Kategori</label>
     <input name="category" class="w-full border rounded px-2 py-1" required />
-  </div>
-  <div class="flex items-center gap-4">
-    <label class="inline-flex items-center"><input type="checkbox" name="is_meat" /> Etli</label>
-    <label class="inline-block">Pişirme Süresi (dk)</label>
-    <input name="cook_time" class="w-24 border rounded px-2 py-1" />
-  </div>
-  <div>
-    <label class="block text-sm">Zorluk</label>
-    <input name="difficulty" class="w-full border rounded px-2 py-1" />
-  </div>
-  <div>
-    <label class="block text-sm">Porsiyon</label>
-    <input name="servings" class="w-full border rounded px-2 py-1" />
   </div>
   <div>
     <label class="block text-sm">Açıklama</label>
@@ -48,7 +37,8 @@
     <input type="file" name="resim" accept="image/*" class="w-full" />
   </div>
   <div>
-    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Ekle</button>
+    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Gönder</button>
   </div>
 </form>
+
 {% endblock %}

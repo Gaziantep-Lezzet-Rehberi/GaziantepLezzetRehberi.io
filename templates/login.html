@@ -1,35 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Giriş — Gaziantep Lezzet Rehberi</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  </head>
-  <body class="bg-gray-50 text-gray-900">
-    <div class="max-w-md mx-auto mt-24 p-6 bg-white rounded shadow">
-      <h1 class="text-xl font-bold mb-4">Giriş</h1>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Giriş — Gaziantep Lezzet Rehberi</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="login-page">
+
+  <div class="login-backdrop" aria-hidden="true"></div>
+
+  <main class="login-modal" role="dialog" aria-modal="true" aria-label="Giriş">
+    <section class="login-card">
+      <header style="text-align:center; margin-bottom:10px">
+        <h1 class="login-title">Giriş</h1>
+        <p class="login-sub">Hesabınıza giriş yapın</p>
+      </header>
+
       {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
-          {% for category, msg in messages %}
-            <div class="mb-2 text-sm text-{{ 'green' if category == 'success' else 'red' }}-600">{{ msg }}</div>
-          {% endfor %}
+          <div class="flash-list">
+            {% for category, msg in messages %}
+              <div class="flash {{ category }}">{{ msg }}</div>
+            {% endfor %}
+          </div>
         {% endif %}
       {% endwith %}
 
-      <form method="post">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
-        <label class="block mb-2 text-sm">Kullanıcı adı
-          <input name="username" class="w-full border rounded p-2 mt-1" required />
+      <form method="post" action="{{ url_for('login') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+        <label class="vis-label">Kullanıcı adı
+          <input type="text" name="username" placeholder="Kullanıcı adı" required>
         </label>
-        <label class="block mb-4 text-sm">Parola
-          <input name="password" type="password" class="w-full border rounded p-2 mt-1" required />
+
+        <label class="vis-label">Parola
+          <input type="password" name="password" placeholder="Parola" required>
         </label>
-        <div class="flex items-center justify-between">
-          <button type="submit" class="px-4 py-2 bg-primary text-white rounded">Giriş</button>
-          <a href="{{ url_for('index') }}" class="text-sm text-gray-600">Geri</a>
+
+        <div class="login-actions">
+          <button type="submit" class="btn primary">Giriş Yap</button>
+          <a href="{{ url_for('index') }}" class="btn secondary">Geri</a>
         </div>
       </form>
-    </div>
-  </body>
+
+      <!-- footer removed per user request -->
+    </section>
+  </main>
+
+</body>
 </html>

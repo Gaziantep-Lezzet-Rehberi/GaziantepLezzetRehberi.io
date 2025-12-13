@@ -6,7 +6,7 @@
 <article class="bg-white rounded shadow overflow-hidden">
   {% if recipe.image_url %}
   <div class="w-full h-64 md:h-96 overflow-hidden">
-    <img src="{{ recipe.image_url }}" alt="{{ recipe.name }}" class="w-full h-full object-cover" />
+     <img src="{{ image_url(recipe.image_url) }}" alt="{{ recipe.name }}" class="w-full h-full object-cover" />
   </div>
   {% endif %}
 
@@ -28,7 +28,7 @@
             {% endif %}
           </div>
           {% if recipe.image_url %}
-          <div class="text-sm text-gray-600">Görsel kaynağı: <br/><em class="break-words">{{ recipe.image_url }}</em></div>
+          <div class="text-sm text-gray-600">Görsel kaynağı: <br/><em class="break-words">{{ image_url(recipe.image_url) }}</em></div>
           {% endif %}
         </div>
       </aside>

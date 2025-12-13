@@ -7,9 +7,9 @@
   {% for p in places %}
   <div class="bg-white p-4 rounded shadow">
     <div class="flex items-center gap-4">
-      {% if p.image_url %}
-      <img src="{{ p.image_url }}" class="w-20 h-20 object-cover rounded" />
-      {% endif %}
+  {% if p.image_url %}
+  <img src="{{ image_url(p.image_url) }}" class="w-20 h-20 object-cover rounded" />
+  {% endif %}
       <div>
         <h3 class="font-semibold">{{ p.name }}</h3>
         <p class="text-sm text-gray-600">{{ p.address }}</p>

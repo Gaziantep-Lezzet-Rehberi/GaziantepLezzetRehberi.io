@@ -31,7 +31,7 @@
     {% for r in featured %}
     <a href="{{ url_for('recipe_detail', recipe_id=r.id) }}" class="block bg-white rounded shadow overflow-hidden hover:shadow-lg">
       {% if r.image_url %}
-      <img src="{{ r.image_url }}" class="w-full h-36 object-cover" />
+        <img src="{{ image_url(r.image_url) }}" class="w-full h-36 object-cover" />
       {% else %}
       <div class="w-full h-36 bg-gray-100"></div>
       {% endif %}
