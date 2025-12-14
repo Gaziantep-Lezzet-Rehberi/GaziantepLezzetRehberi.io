@@ -35,11 +35,23 @@ def image_url(value):
 	"""
 	if not value:
 		return None
-	# already a public path or full url
-	if isinstance(value, str) and (value.startswith('/') or value.startswith('http://') or value.startswith('https://')):
+	# If it's a full external URL, return it unchanged
+	if isinstance(value, str) and (value.startswith('http://') or value.startswith('https://')):
 		return value
-	# treat as filename stored in DB
-	return url_for('static', filename=f'uploads/{value}')
+
+	# Normalize values that may start with / or /static/
+	v = value
+	if isinstance(v, str) and v.startswith('/static/'):
+		v = v[len('/static/'):]
+	elif isinstance(v, str) and v.startswith('/'):
+		v = v.lstrip('/')
+
+	# If the stored value contains a slash (like 'images/x.jpg' or 'uploads/x.jpg'), treat as relative static path
+	if isinstance(v, str) and '/' in v:
+		return url_for('static', filename=v)
+
+	# Otherwise treat as bare filename stored in uploads/
+	return url_for('static', filename=f'uploads/{v}')
 
 # Ensure template global is present in the Jinja environment (defensive)
 app.jinja_env.globals['image_url'] = image_url
@@ -233,7 +245,8 @@ def admin_add():
 				save_path = os.path.join(app.config['UPLOAD_FOLDER'], unique)
 				image_file.save(save_path)
 				# store a public URL path
-				image_url = f"/static/uploads/{unique}"
+				# store as relative static path so templates can use url_for uniformly
+				image_url = f"uploads/{unique}"
 			except Exception as e:
 				flash(f'Resim kaydedilemedi: {e}', 'danger')
 
@@ -298,7 +311,7 @@ def admin_edit(recipe_id):
 				save_path = os.path.join(app.config['UPLOAD_FOLDER'], unique)
 				image_file.save(save_path)
 				# set public path
-				recipe.image_url = f"/static/uploads/{unique}"
+				recipe.image_url = f"uploads/{unique}"
 				# remove old file if different
 				if old_image:
 					try:
