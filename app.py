@@ -11,7 +11,9 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET', 'dev-secret')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///gaziantep.db'
+# Prefer using the instance folder for the DB to avoid accidental creation in CWD
+os.makedirs(app.instance_path, exist_ok=True)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path, 'gaziantep.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Upload folder for recipe images
 app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'static', 'uploads')
